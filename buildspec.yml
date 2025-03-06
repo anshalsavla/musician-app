@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm test
+reports:
+  test-report:
+    files:
+      - '**/test-results.xml'
+    discard-paths: no
