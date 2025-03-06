@@ -51,6 +51,29 @@ router.put('/:id', jsonParser, async (req, res) => {
   }
 });
 
+// router.put('/musician/:id', async (req, res) => {
+//   try {
+//     const musicianId = req.params.id;
+//     const musicianData = req.body;
+
+//     // Validate musician data (example validation)
+//     if (!musicianData.firstName || !musicianData.lastName || !musicianData.genre) {
+//       return res.status(400).json({ error: 'Invalid musician data' });
+//     }
+
+//     // Update musician in the store
+//     const updatedMusician = await Musician.updateMusician(musicianId, musicianData);
+
+//     if (!updatedMusician) {
+//       return res.status(404).json({ error: 'Musician not found' });
+//     }
+
+//     res.status(200).json(updatedMusician);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// });
+
 // retrieve a musician from data store
 router.delete('/:id', (req, res) => {
   const { musician } = req.app.locals;
