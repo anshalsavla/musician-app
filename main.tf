@@ -55,3 +55,28 @@ resource "aws_iam_role_policy" "ecr_policy" {
     ]
   })
 }
+
+module "music-app-test" {
+    source = "github.com/anshalsavla/terraform-aws-webapp-nodejs/modules"
+    app_name = "musician-test"
+    repo = "anshalsavla/musician-app"
+    buildspec = "buildspec-test.yml"
+    compute_type = "BUILD_LAMBDA_4GB"
+    image = "aws/codebuild/amazonlinux-x86_64-lambda-standard:nodejs18"
+    environment_type = "LINUX_LAMBDA_CONTAINER"
+    filter_group= [ 
+        {
+            type = "EVENT"
+            pattern = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED"
+        },
+        {
+            type = "HEAD_REF"
+            pattern = "master"
+        }
+    ]
+  
+    build_timeout = "5"
+}
+
+
+
