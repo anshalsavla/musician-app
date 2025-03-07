@@ -3,12 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Increasing the limit of open file descriptors...
-      - ulimit -n 4096
       - echo Installing npm dependencies...
       - npm instal
   build:
     commands:
+      - echo Starting tests
       - npm test
 reports:
   test-report:
