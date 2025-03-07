@@ -70,7 +70,7 @@ module "music-app-test" {
             pattern = "PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED, PULL_REQUEST_REOPENED"
         },
         {
-            type = "HEAD_REF"
+            type = "BASE_REF"
             pattern = "master"
         }
     ]
