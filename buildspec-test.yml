@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing npm dependencies...
+      - npm instal
+  build:
+    commands:
+      - echo Starting tests
+      - npm test
+reports:
+  test-report:
+    files:
+      - '**/test-results.xml'
+    discard-paths: no

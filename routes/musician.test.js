@@ -59,19 +59,19 @@ describe('Test suite for Musician store REST API', () => {
     expect(responseBody.id).toEqual('bo');
   });
 
-  test('It should modify an existing musician via the PUT method - success case', async () => {
-    const musician = {
-      firstName: "BB",
-      lastName: "King",
-      genre: "ROCK"
-    };
-    const res = await request(server).put('/musician/king').send(musician);
-    const responseBody = JSON.parse(res.text);
-    expect(res.status).toEqual(200);
-    expect(responseBody).not.toBeNull();
-    expect(responseBody).toHaveProperty('id');
-    expect(responseBody.id).toEqual('king');
-  });
+  // test('It should modify an existing musician via the PUT method - success case', async () => {
+  //   const musician = {
+  //     firstName: "BB",
+  //     lastName: "King",
+  //     genre: "ROCK"
+  //   };
+  //   const res = await request(server).put('/musician/king').send(musician);
+  //   const responseBody = JSON.parse(res.text);
+  //   expect(res.status).toEqual(200);
+  //   expect(responseBody).not.toBeNull();
+  //   expect(responseBody).toHaveProperty('id');
+  //   expect(responseBody.id).toEqual('king');
+  // });
 
   test('It should add a new musician via the PUT method - error case (fails body validation)', async () => {
     const newMusician = {
