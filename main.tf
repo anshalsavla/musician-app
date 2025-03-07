@@ -77,6 +77,3 @@ module "music-app-test" {
   
     build_timeout = "5"
 }
-
-
-
