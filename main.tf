@@ -12,9 +12,9 @@ module "music-app-build" {
     app_name = "musician-build"
     repo = "anshalsavla/musician-app"
     buildspec = "buildspec-build.yml"
-    compute_type = "BUILD_LAMBDA_4GB"
-    image = "aws/codebuild/amazonlinux-x86_64-lambda-standard:nodejs18"
-    environment_type = "LINUX_LAMBDA_CONTAINER"
+    compute_type = "BUILD_GENERAL1_MEDIUM"
+    image = "aws/codebuild/amazonlinux-x86_64-standard:5.0"
+    environment_type = "LINUX_CONTAINER"
     filter_group= [ 
         {
             type = "EVENT"
@@ -41,6 +41,7 @@ resource "aws_iam_role_policy" "ecr_policy" {
     Statement = [
       {
         Action = [
+          "ecr:GetAuthorizationToken",
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage",
           "ecr:BatchCheckLayerAvailability",
@@ -77,3 +78,4 @@ module "music-app-test" {
   
     build_timeout = "5"
 }
+

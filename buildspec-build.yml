@@ -1,6 +1,14 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo Installing Docker...
+      - yum update -y
+      - amazon-linux-extras install docker -y
+      - service docker start
+      - usermod -a -G docker $USER
+      - chmod 666 /var/run/do
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
